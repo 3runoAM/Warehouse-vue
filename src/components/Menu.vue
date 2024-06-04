@@ -1,5 +1,6 @@
 <template>
   <nav>
+    <router-link to="/">Home</router-link> |
     <router-link to="/warehouses">Listar Galpões</router-link> |
     <router-link to="/warehouses/new">Cadastrar Galpões</router-link>
   </nav>

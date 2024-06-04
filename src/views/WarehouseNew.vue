@@ -6,12 +6,13 @@
 
 <!---->
 
+<script>
+  export default {
+    name: "WarehouseNew"
+  }
+</script>
+<!---->
+
 <style>
 
 </style>
-
-<!---->
-
-<script>
-
-</script>
