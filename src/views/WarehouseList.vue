@@ -1,22 +1,13 @@
 <template>
   <div>
     <h1>Galpões cadastrados</h1>
-
-    <div>
-      <label for="search">Busca </label>
-      <input v-model="query" id="search" type="text" placeholder="Buscar Galpão">
-    </div>
+    <v-text-field v-model="query" id="search" type="text" placeholder="Buscar Galpão"></v-text-field>
     <br/>
-    <div class="warehouses-container" v-for="w in filterWarehouses" :key="w.id">
-      <warehouse
-          :name = w.name
-          :code = w.code
-          :city = w.city
-          :area = w.area
-          :address = w.address
-          :zip = w.CEP></warehouse>
-          <div class="divider"></div>
-    </div>
+    <v-card>
+      <v-card-text>
+        <warehouse-table :warehouses="filterWarehouses"></warehouse-table>
+      </v-card-text>
+    </v-card>
   </div>
 </template>
 
@@ -24,11 +15,13 @@
 
 <script>
   import Warehouse from '@/components/Warehouse.vue'
+  import WarehouseTable from "@/components/WarehouseTable.vue";
 
   export default {
     name: "WarehouseList",
 
     components: {
+      WarehouseTable,
       Warehouse
     },
 

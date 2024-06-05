@@ -1,20 +1,25 @@
 <template>
-  <div id="app">
-    <Menu></Menu>
-    <router-view/>
-  </div>
+  <v-app>
+    <v-main>
+      <Menu/>
+      <v-container>
+        <v-row class="text-center">
+          <v-col>
+            <router-view/>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-main>
+  </v-app>
 </template>
 
-<style>
-  #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-  }
-</style>
+<script>
+  import Menu from '@/components/Menu.vue'
+  export default {
+    name: 'App',
 
-<script setup>
-  import Menu from "@/components/Menu.vue";
+    components: {
+      Menu
+    }
+  };
 </script>

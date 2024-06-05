@@ -1,8 +1,20 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/warehouses">Listar Galpões</router-link> |
-    <router-link to="/warehouses/new">Cadastrar Galpões</router-link>
+    <v-container>
+      <v-row>
+        <v-col>
+          <v-toolbar flat color="grey lighten-4">
+            <v-toolbar-title>Galpões & Estoque!   </v-toolbar-title>
+            <v-spacer></v-spacer>
+            <nav>
+              <v-btn to="/">Home</v-btn>
+              <v-btn to="/warehouses">Listar Galpões</v-btn>
+              <v-btn to="/warehouses/new">Cadastrar Galpões</v-btn>
+            </nav>
+          </v-toolbar>
+        </v-col>
+      </v-row>
+    </v-container>
   </nav>
 </template>
 

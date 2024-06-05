@@ -3,56 +3,26 @@
     <h1>Cadastro de Galpões</h1>
     <div class="form-container">
 
-      <div v-text="message"></div>
+      <v-alert v-if="message != null" type="info">{{message}}</v-alert>
 
-      <form v-on:submit.prevent>
-        <div class="form">
-          <label for="name">Nome: </label>
-          <input v-model="form.name" id="name" type="text" placeholder="Nome do galpão">
-        </div>
-        <br/>
+      <v-form v-on:submit.prevent>
 
-        <div class="form">
-          <label for="code">Código: </label>
-          <input v-model="form.code" id="code" type="text" placeholder="Código do galpão">
-        </div>
-        <br/>
+        <v-text-field v-model="form.name" type="text" label="Nome"></v-text-field>
 
-        <div class="form">
-          <label for="city">Cidade: </label>
-          <input v-model="form.city" id="city" type="text" placeholder="Cidade">
-        </div>
-        <br/>
+        <v-text-field v-model="form.code" type="text" label="Código"></v-text-field>
 
-        <div class="form">
-          <label for="area">Área (m²): </label>
-          <input v-model="form.area" id="area" type="number" placeholder="Área do galpão">
-        </div>
-        <br/>
+        <v-text-field v-model="form.city" type="text" label="Cidade"></v-text-field>
 
-        <div class="form">
-          <label for="address">Endereço: </label>
-          <input v-model="form.address" id="address" type="text" placeholder="Rua, número ou lote">
-        </div>
-        <br/>
+        <v-text-field v-model="form.area" type="text" label="Área"></v-text-field>
 
-        <div class="form">
-          <label for="zip">CEP: </label>
-          <input v-model="form.zip" id="zip" type="text" placeholder="CEP">
-        </div>
-        <br/>
+        <v-text-field v-model="form.address" type="text" label="Rua, número ou lote"></v-text-field>
 
-        <div class="form">
-          <label for="description">Descrição: </label>
-          <textarea v-model="form.description" cols="30" rows="5" id="description" placeholder="Descrição"></textarea>
-        </div>
-        <br/>
+        <v-text-field v-model="form.zip" type="text" label="CEP"></v-text-field>
 
-        <div class="form">
-          <button v-on:click="postWarehouse()">Cadastrar</button>
-        </div>
-        <br/>
-      </form>
+        <v-textarea v-model="form.description" type="text" label="Descrição"></v-textarea>
+
+        <v-btn color="primary" v-on:click="postWarehouse()">Cadastrar</v-btn>
+      </v-form>
     </div>
   </div>
 </template>
@@ -65,7 +35,7 @@
 
     data(){
       return {
-        message: "",
+        message:null,
         form: {
           name: null,
           code: null,
