@@ -1,13 +1,20 @@
 <template>
   <div>
     <h1>Galpões cadastrados</h1>
-    <div class="warehouses-container" v-for="w in warehouseList" :key="w.id">
+
+    <div>
+      <label for="search">Busca </label>
+      <input v-model="query" id="search" type="text" placeholder="Buscar Galpão">
+    </div>
+    <br/>
+    <div class="warehouses-container" v-for="w in filterWarehouses" :key="w.id">
       <warehouse
           :name = w.name
           :code = w.code
           :city = w.city
           :area = w.area
-          :address = w.address></warehouse>
+          :address = w.address
+          :zip = w.CEP></warehouse>
           <div class="divider"></div>
     </div>
   </div>
@@ -16,7 +23,7 @@
 <!---->
 
 <script>
-  import Warehouse from '@/components/warehouse.vue'
+  import Warehouse from '@/components/Warehouse.vue'
 
   export default {
     name: "WarehouseList",
@@ -27,7 +34,8 @@
 
     data() {
       return {
-        warehouseList: []
+        warehouseList: [],
+        query: ""
       }
     },
 
@@ -45,6 +53,15 @@
         // return this.warehouseList;
       },
     },
+
+    computed:{
+      filterWarehouses(){
+        return this.warehouseList.filter(warehouse => {
+              return warehouse.name.toLowerCase().includes(this.query.toLowerCase())
+            }
+        )
+      }
+    }
   }
 </script>
 <!---->
